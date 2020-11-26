@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './App.css';
+
 import ActivePane from "./ActivePane";
 import Header from "./Header";
 import Menu from "./Menu";

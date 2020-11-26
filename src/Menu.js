@@ -10,12 +10,13 @@ class Menu extends React.Component {
           <li>🏡Resumen del dia</li>
           <li>🌱Mis plantas</li>
           <li>🌳Seleccionar planta</li>
-          <li>ℹStatus de sensores</li>
+          <li> &#128712; Status de sensores</li>
           <li>📊Historial de datos</li>
         </ul>
 
         <span>❔Tutoriales y ayuda</span>
-        <small>Made by ITESM 💙🏫💙</small>
+        <br />
+        <small>Made by ITESM students 💙🏫💙</small>
       </div>
     );
   }

@@ -1,17 +1,24 @@
 import React from 'react';
 
-import hamburgerMenu from "./svg/hamburger-menu.svg";
+import menuClosed from "./svg/menu-closed.svg";
+import menuOpened from "./svg/menu-opened.svg";
 
 class Header extends React.Component {
+  state = {
+    closed: false,
+  };
+
   onToggleMenu = (evt) => {
     this.props.onToggleMenu(evt);
-  }
+
+    this.setState({ closed: !this.state.closed });
+  };
 
   render() {
     return (
-      <header>
+      <header className="App-header">
         <img 
-          src={hamburgerMenu}
+          src={this.state.closed ? menuClosed : menuOpened}
           alt="Navigation menu"
           onClick={this.onToggleMenu}
         />
