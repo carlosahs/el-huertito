@@ -1,29 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import './Dashboard';
-import Dashboard from './Dashboard';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import ActivePane from "./ActivePane";
+import Header from "./Header";
+import Menu from "./Menu";
 
-      <Dashboard />
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    toggleMenu: false,
+  };
+
+  onToggleMenu = (evt) => {
+    this.setState({ toggleMenu: !this.state.toggleMenu });
+  };
+
+  render() {
+    return (
+      <main>
+        <Header onToggleMenu={this.onToggleMenu} />
+
+        <div>
+          <Menu toggleStatus={this.state.toggleMenu} />
+          <ActivePane pane={0} />
+        </div>
+      </main>
+    );
+  }
 }
 
 export default App;
