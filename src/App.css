@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  background-image: url("./img/background.png");
 }
 
 .App-header {
@@ -10,7 +10,9 @@
   align-items: center;
   justify-content: left;
   font-size: calc(10px + 2vmin);
+  font-weight: bold;
   color: white;
+  opacity: 0.6;
 }
 
 .App-header img {
@@ -19,4 +21,9 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.App-main {
+  display: flex;
+  display: row;
 }

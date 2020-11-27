@@ -17,11 +17,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <main>
+      <main className="App">
         <Header onToggleMenu={this.onToggleMenu} />
 
-        <div>
-          <Menu toggleStatus={this.state.toggleMenu} />
+        <div className="App-main">
+          {
+            !this.state.toggleMenu ? null : <Menu toggleStatus={this.state.toggleMenu} />
+          }
           <ActivePane pane={0} />
         </div>
       </main>

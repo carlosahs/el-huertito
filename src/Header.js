@@ -18,7 +18,7 @@ class Header extends React.Component {
     return (
       <header className="App-header">
         <img 
-          src={this.state.closed ? menuClosed : menuOpened}
+          src={!this.state.closed ? menuClosed : menuOpened}
           alt="Navigation menu"
           onClick={this.onToggleMenu}
         />
