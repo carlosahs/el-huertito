@@ -30,6 +30,11 @@ class Graphics extends React.Component {
         <h3>{ this.props.label }</h3>
 
         <span>This is the current value: { this.state.value }</span>
+        <ul>
+          {
+            this.state.values.map((value, i) => <li key={ i }>{ value }</li>).reverse()
+          }
+        </ul>
       </div>
     );
   }
