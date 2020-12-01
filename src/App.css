@@ -1,5 +1,6 @@
 .App {
   background-image: url("./img/background.png");
+  padding: 0px 10px;
 }
 
 .App-header {
@@ -9,6 +10,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
+  font-family: 'Rochester', cursive;
   font-size: calc(10px + 2vmin);
   font-weight: bold;
   color: white;
