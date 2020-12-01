@@ -8,7 +8,7 @@ class Graphics extends React.Component {
   };
 
   componentWillMount() {
-    let incomingValues = database.ref('Pot');
+    let incomingValues = database.ref(this.props.sensor);
 
     incomingValues.on('value', snapshot => {
       let incomingValue = snapshot.val();
