@@ -1,10 +1,13 @@
 import React from 'react';
+import { Chart } from 'react-google-charts';
 
 import database from './firebase';
 
+
 class Graphics extends React.Component {
   state = {
-    values: [],
+    values: [["Timestamp", "Value"]],
+    value: 0,
   };
 
   componentWillMount() {
@@ -14,15 +17,11 @@ class Graphics extends React.Component {
       let incomingValue = snapshot.val();
 
       this.setState({ 
-        values: this.state.values.concat(incomingValue),
+        values: this.state.values.concat([[Date(Date.now()), incomingValue]]),
         value: incomingValue
       });
     });
   }
-
-  //getIncomingValue = () => {
-  //  return this.state.value;
-  //};
 
   render() {
     return (
@@ -30,11 +29,22 @@ class Graphics extends React.Component {
         <h3>{ this.props.label }</h3>
 
         <span>This is the current value: { this.state.value }</span>
-        <ul>
-          {
-            this.state.values.map((value, i) => <li key={ i }>{ value }</li>).reverse()
-          }
-        </ul>
+
+        <Chart
+          width={'100vw'}
+          height={'200px'}
+          chartType='LineChart'
+          loader={<div>Loading data</div>}
+          data={this.state.values}
+          options={{
+            hAxis: {
+              title: 'Date',
+            },
+            vAxis: {
+              title: 'Value',
+            },
+          }}
+        />
       </div>
     );
   }
