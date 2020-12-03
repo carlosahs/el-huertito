@@ -47,7 +47,6 @@ class Graphics extends React.Component {
         <h3>{ this.props.label } { this.state.currentValue }</h3>
 
         <Chart
-          width={'100%'}
           height={'200px'}
           chartType='LineChart'
           loader={<div>Loading data</div>}
