@@ -42,9 +42,23 @@ class Graphics extends React.Component {
   //}
 
   render() {
+    let warning = "";
+
+    if (this.props.sensor == "Hum") {
+      if (this.state.currentValue <= 300) warning = "Dry";
+      else if (this.state.currentValue > 300 && this.state.currentValue <= 700) warning = "Humid"
+      else if (this.state.currentValue > 700) warning = "In water"
+    } else if (this.props.sensor == "Temp") {
+      if (this.state.currentValue <= 15) warning = "Cold";
+      else if (this.state.currentValue > 10 && this.state.currentValue <= 55) warning = "Warm"
+      else if (this.state.currentValue > 55) warning = "Too hot"
+    }
+
     return (
       <div>
         <h3>{ this.props.label } { this.state.currentValue }</h3>
+
+        <span>{warning}</span>
 
         <Chart
           height={'200px'}
