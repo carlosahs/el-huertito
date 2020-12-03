@@ -1,8 +1,14 @@
-# Getting Started with Create React App
+# El huertito
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El huertito is a web application built in ReactJS, whse backend is built with the help of Firebase
+Hosting and Firebase Realtime Database. It is capable of displaying and storing data comming from a 
+gardening system in real time, providing the user with relevant data such as temperature and humidity.
 
-## Available Scripts
+# Special thanks
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# How to run the web app (create-react-app self-created instructions)
 
 In the project directory, you can run:
 
