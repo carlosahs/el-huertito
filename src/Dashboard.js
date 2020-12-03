@@ -6,8 +6,8 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <Graphics label="🌡Temperatura (°C)" sensor="Pot"  chartId="T" />
-        <Graphics label="💧Humedad" sensor="Pot"  chartId="H" />
+        <Graphics label="🌡Temperatura (°C)" sensor="Temp"  chartId="T" />
+        <Graphics label="💧Humedad" sensor="Hum"  chartId="H" />
       </div>
     );
   }

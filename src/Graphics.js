@@ -3,11 +3,21 @@ import { Chart } from 'react-google-charts';
 
 import database from './firebase';
 
-
 class Graphics extends React.Component {
   state = {
-    values: [["Timestamp", "Value"]],
-    value: 0,
+    entries: [["Timestamp", "Value"]],
+    currentValue: 0,
+    lastEntry: [],
+    databasePath: 'History/' + this.props.sensor,
+  };
+
+  uploadNewEntry = (entry) => {
+    let newEntryKey = database.ref().child(this.state.databasePath).push().key;
+
+    let update = {};
+    update[this.state.databasePath + '/' + newEntryKey] = entry;
+
+    return database.ref().update(update);
   };
 
   componentWillMount() {
@@ -15,27 +25,35 @@ class Graphics extends React.Component {
 
     incomingValues.on('value', snapshot => {
       let incomingValue = snapshot.val();
+      let newEntry = [Date(Date.now()), incomingValue];
 
       this.setState({ 
-        values: this.state.values.concat([[Date(Date.now()), incomingValue]]),
-        value: incomingValue
+        entries: this.state.entries.concat([newEntry]),
+        currentValue: incomingValue,
+        lastEntry: newEntry
       });
+
+      this.uploadNewEntry(newEntry);
     });
   }
+
+  //componentDidMount() {
+  //  let sensorHistory = database.ref('History/' + this.props.sensor).get 
+  //}
 
   render() {
     return (
       <div>
         <h3>{ this.props.label }</h3>
 
-        <span>This is the current value: { this.state.value }</span>
+        <span>This is the current value: { this.state.currentValue }</span>
 
         <Chart
           width={'100vw'}
           height={'200px'}
           chartType='LineChart'
           loader={<div>Loading data</div>}
-          data={this.state.values}
+          data={this.state.entries}
           options={{
             hAxis: {
               title: 'Date',
