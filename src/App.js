@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 
-import ActivePane from "./ActivePane";
+import Dashboard from "./Dashboard";
 import Header from "./Header";
 import Menu from "./Menu";
 
@@ -12,6 +12,8 @@ class App extends React.Component {
   };
 
   onToggleMenu = (evt) => {
+    evt.preventDefault();
+
     this.setState({ toggleMenu: !this.state.toggleMenu });
   };
 
@@ -24,7 +26,7 @@ class App extends React.Component {
           {
             !this.state.toggleMenu ? null : <Menu toggleStatus={this.state.toggleMenu} />
           }
-          <ActivePane pane={0} />
+          <Dashboard />
         </div>
       </main>
     );

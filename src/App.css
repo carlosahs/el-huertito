@@ -1,6 +1,5 @@
 .App {
   background-image: url("./img/background.png");
-  padding: 0px 10px;
 }
 
 .App-header {
@@ -27,5 +26,15 @@
 
 .App-main {
   display: flex;
-  display: row;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.App-menu {
+  min-width: 15vw;
+  max-width: 20vw;
+}
+
+.App-dashboard {
+  width: 100%;
 }

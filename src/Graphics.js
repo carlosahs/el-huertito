@@ -44,12 +44,10 @@ class Graphics extends React.Component {
   render() {
     return (
       <div>
-        <h3>{ this.props.label }</h3>
-
-        <span>This is the current value: { this.state.currentValue }</span>
+        <h3>{ this.props.label } { this.state.currentValue }</h3>
 
         <Chart
-          width={'100vw'}
+          width={'100%'}
           height={'200px'}
           chartType='LineChart'
           loader={<div>Loading data</div>}
@@ -59,7 +57,7 @@ class Graphics extends React.Component {
               title: 'Date',
             },
             vAxis: {
-              title: 'Value',
+              title: this.props.sensor,
             },
           }}
         />
